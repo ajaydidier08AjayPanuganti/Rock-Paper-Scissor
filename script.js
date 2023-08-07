@@ -1,22 +1,45 @@
-let playerSelection = ""
-let computerSelection = ""
+
+var pScore = document.querySelector(".your-score").lastElementChild
+var cScore = document.querySelector(".computer-score").lastElementChild
+
+
+var res = document.createElement("div")
+res.classList.add("result")
+
+
+var myScore = document.querySelector(".Rock")
+myScore.addEventListener('click',()=>{
+    playround("Rock")
+})
+var myScore = document.querySelector(".Paper")
+myScore.addEventListener('click',()=>{
+    playround("Paper")
+})
+var myScore = document.querySelector(".Scissor")
+myScore.addEventListener('click',()=>{
+    playround("Scissor")
+})
+
+
 let playerpoints = 0
 let computerpoints = 0
 
+
 function playround(playerSelection){
-    computerSelection = computerSelector()
-    if (!((playerSelection.toLowerCase() == 'scissor') || (playerSelection.toLowerCase() == 'rock') || (playerSelection.toLowerCase() == 'paper')))
-        alert ("Incorrect option " + playerSelection)
-    else if ((computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'rock') || (computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'scissor') || (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'paper')){
-            alert("You win! You chose " +playerSelection+ " and the computer chose " + computerSelection)
+    let computerSelection = computerSelector()
+    if ((computerSelection.toLowerCase() == 'scissor' && playerSelection.toLowerCase() == 'rock') || (computerSelection.toLowerCase() == 'paper' && playerSelection.toLowerCase() == 'scissor') || (computerSelection.toLowerCase() == 'rock' && playerSelection.toLowerCase() == 'paper')){
+            pScore.innerHTML = playerpoints + 1
             playerpoints++
+            res.innerHTML = "You win! You chose " + playerSelection + " and the computer chose " + computerSelection
         }
     else if ( computerSelection.toLowerCase() == playerSelection.toLowerCase() )
-            alert("Its a tie! You chose " + playerSelection + " and the computer chose " +computerSelection)
+            res.innerHTML = "Its a tie! Both chose " + playerSelection 
     else{ 
-            alert("Computer's win! You chose " + playerSelection + " and the computer chose " +computerSelection)
+            cScore.innerHTML = computerpoints + 1
             computerpoints++
+            res.innerHTML = "Computer's win! You chose " + playerSelection + " and the computer chose " +computerSelection
         }
+    document.querySelector(".final-score").appendChild(res)
     }
 
 function computerSelector(){
@@ -31,6 +54,7 @@ function computerSelector(){
         case 2: return "Rock"
     }
 }
+/*
 
 function game(){
     for (let i =0;i<5;i++){
@@ -43,5 +67,5 @@ function game(){
     else alert('Its a tie')
 }
 
-game()
+game()*/
 

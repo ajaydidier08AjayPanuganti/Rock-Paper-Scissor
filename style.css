@@ -1,0 +1,37 @@
+h1{
+    text-align: center;
+    padding-top: 50px;
+}
+.button-container{
+    height: 400px;
+    display: flex;
+    border: 1px solid red;
+    justify-content: space-between;
+    padding-left: 400px;
+    padding-right: 400px;
+    align-items: center;
+
+}
+.start-game{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    gap: 50px;
+}
+button{
+    height: 100px;
+    background-color: beige;
+    border-radius: 20px;
+    width: 200px;
+}
+.points{
+    display: flex;
+    justify-content: space-around;
+}
+
+.result{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+

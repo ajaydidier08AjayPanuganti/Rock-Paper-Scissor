@@ -35,3 +35,9 @@ button{
     text-align: center;
 }
 
+.winner{
+    font-size: 40px;
+    color: red;
+    padding: 30px;
+}
+

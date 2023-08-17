@@ -1,4 +1,4 @@
-
+var body = document.querySelector("body")
 var pScore = document.querySelector(".your-score").lastElementChild
 var cScore = document.querySelector(".computer-score").lastElementChild
 
@@ -21,6 +21,7 @@ myScore.addEventListener('click',()=>{
 })
 
 
+
 let playerpoints = 0
 let computerpoints = 0
 
@@ -39,7 +40,14 @@ function playround(playerSelection){
             computerpoints++
             res.innerHTML = "Computer's win! You chose " + playerSelection + " and the computer chose " +computerSelection
         }
-    document.querySelector(".final-score").appendChild(res)
+    var finalScore = document.querySelector(".final-score").appendChild(res)
+    if ( playerpoints == 5 || computerpoints == 5 ){
+        var winner = document.createElement("div")
+        winner.classList.add("winner")
+        winner.innerHTML = (playerpoints>computerpoints) ? "Player Wins" : "Computer Wins"
+        finalScore.appendChild(winner)    
+        playAgain()
+        }
     }
 
 function computerSelector(){
@@ -53,6 +61,14 @@ function computerSelector(){
             break;
         case 2: return "Rock"
     }
+}
+function playAgain(){
+var but = document.querySelector('.start-game')
+but.innerHTML = "<button class ='playAgain'>Play Again</button>"
+var replay = document.querySelector(".playAgain")
+replay.addEventListener("click",()=>{
+    window.location.reload()
+})
 }
 /*
 
